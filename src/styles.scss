@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('../node_modules/primeng/resources/primeng.min.css');
+
+body {
+  font-size: 1vw;
+  overflow: hidden;
+}
+
+/*========================== input ==============================*/
+body .ui-inputtext {
+  font-size: 14px;
+  color: #333333;
+  background: #ffffff;
+  padding: 0.429em;
+  border: 1px solid #a6a6a6;
+}
+/*========================== input ==============================*/
