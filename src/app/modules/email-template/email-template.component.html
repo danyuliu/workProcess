@@ -1,0 +1,24 @@
+<div class="ui-g-12 content">
+    <div class="ui-g-12">
+        <div class="ui-g-3 plabel"><label class="required">Template Name</label></div>
+        <div class="ui-g-6"><input pInputText type="text" maxlength="50" [(ngModel)]="templateName"></div>
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-3"><p-radioButton class="right-float" name="bodyFormatRadio" label="Html Attachment" value="htmlBody" [(ngModel)]="bodyFormat" (click)="selectRadio()"></p-radioButton></div>
+        <!-- <div class="ui-g-6"><textarea [disabled]="!isHtmlBody" [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="templateContent"></textarea></div> -->
+        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
+        
+    </div>
+    <div class="ui-g-12">
+        <div class="ui-g-3"><p-radioButton class="right-float" name="bodyFormatRadio" label="Text Content" value="textBody" [(ngModel)]="bodyFormat" (click)="selectRadio()"></p-radioButton></div>
+        <div class="ui-g-6"><textarea [disabled]="isHtmlBody" [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="templateContent"></textarea></div>
+    </div>
+
+
+    
+    <!-- <button pButton type="button" class="browse-btn" label="Browse" (click)="onChooseClick()"></button> -->
+    <!-- <p-fileUpload #fileUpload name="files" url="{{uploadUrl}}" multiple="multiple" maxFileSize="1000000" [disabled]="isUpload" (onBeforeSend)="onBeforeSend($event.xhr, $event.formData)" (onBeforeUpload)="onBeforeUpload($event.xhr, $event.formData)" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" (onError)="onUploadError($event)">
+    </p-fileUpload> -->
+    
+    <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+</div>
