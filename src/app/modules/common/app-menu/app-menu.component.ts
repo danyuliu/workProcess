@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-menu",
@@ -9,9 +10,10 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from "@angular/cor
 export class AppMenuComponent implements OnInit {
 
   menuList: any = [];
-  @Output() onPageNavigation: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.menuList = [
@@ -22,14 +24,14 @@ export class AppMenuComponent implements OnInit {
       },
       { 
         displayText: "Email",
-        routeLink: "emailTemplate",
+        routeLink: "emailTemplateList",
         class: "pi-envelope"   
       }
     ];
   }
 
   onMenuClick(routeLink) {
-    this.onPageNavigation.emit(routeLink);
+    this.router.navigate([routeLink]);
   }
 
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { Router } from '@angular/router';
-import { CommonService } from '../../services/common.service';
-import { EmailService } from "../../services/email.service";
+import { EmailService } from "../../../services/email.service";
 
 @Component({
   selector: "email-template",
@@ -9,7 +8,7 @@ import { EmailService } from "../../services/email.service";
   styleUrls: ["./email-template.component.scss"]
 })
   
-export class EmailTemplateComponent implements OnInit {
+export class EmailTemplateCreateComponent implements OnInit {
 
   newTemplate: any = {
     subject: null,
@@ -32,7 +31,6 @@ export class EmailTemplateComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private commonService: CommonService,
     private emailService: EmailService
   ) {}
 
@@ -82,7 +80,7 @@ export class EmailTemplateComponent implements OnInit {
   }
 
   cancel() {
-    this.commonService.backToMainMenu("../");
+    this.router.navigate(["../"]);
   }
 
 }

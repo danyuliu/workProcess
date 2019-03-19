@@ -13,6 +13,7 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {SpinnerModule} from 'primeng/spinner';
 import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
+import {TableModule} from 'primeng/table';
 /* END */
 
 /* Components */
@@ -20,11 +21,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppMenuComponent } from './modules/common/app-menu/app-menu.component';
 import { AddEmployeeComponent } from './modules/add-employee/add-employee.component';
-import { EmailTemplateComponent } from './modules/email-template/email-template.component';
+import { EmailTemplateListComponent } from './modules/email-template/email-template-list/email-template-list.component';
+import { EmailTemplateCreateComponent } from './modules/email-template/email-template-create/email-template.component';
 /* END */
 
 /* Service */
-import { CommonService } from './services/common.service';
 import { EmailService } from './services/email.service';
 /* END */
 
@@ -34,7 +35,8 @@ import { EmailService } from './services/email.service';
     AppComponent,
     AppMenuComponent,
     AddEmployeeComponent,
-    EmailTemplateComponent
+    EmailTemplateListComponent,
+    EmailTemplateCreateComponent
     /* END */
   ],
   imports: [
@@ -52,11 +54,11 @@ import { EmailService } from './services/email.service';
     RadioButtonModule,
     SpinnerModule,
     CalendarModule,
-    DialogModule
+    DialogModule,
+    TableModule,
     /* END */
   ],
   providers: [
-    CommonService, 
     EmailService
   ],
   bootstrap: [AppComponent]
