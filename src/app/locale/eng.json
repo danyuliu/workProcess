@@ -1,5 +1,8 @@
 {
-    "Template Name": "Template Name",
-    "Template Content": "Template Content",
-    "Browse": "Browse"
+    "TEMPLATE_NAME": "Template Name",
+    "TEMPLATE_CONTENT": "Template Content",
+    "BROWSE": "Browse",
+    "HEADERS": {
+        "CREATE_EMAIL_TEMPLATE": "Create Email Template"
+    }
 }

@@ -1,24 +1,58 @@
 <div class="ui-g-12 content">
-    <div class="ui-g-12">
-        <div class="ui-g-3 plabel"><label class="required">Template Name</label></div>
-        <div class="ui-g-6"><input pInputText type="text" maxlength="50" [(ngModel)]="templateName"></div>
-    </div>
-    <div class="ui-g-12">
-        <div class="ui-g-3"><p-radioButton class="right-float" name="bodyFormatRadio" label="Html Attachment" value="htmlBody" [(ngModel)]="bodyFormat" (click)="selectRadio()"></p-radioButton></div>
-        <!-- <div class="ui-g-6"><textarea [disabled]="!isHtmlBody" [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="templateContent"></textarea></div> -->
-        <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload>
-        
-    </div>
-    <div class="ui-g-12">
-        <div class="ui-g-3"><p-radioButton class="right-float" name="bodyFormatRadio" label="Text Content" value="textBody" [(ngModel)]="bodyFormat" (click)="selectRadio()"></p-radioButton></div>
-        <div class="ui-g-6"><textarea [disabled]="isHtmlBody" [rows]="5" [cols]="30" pInputTextarea [(ngModel)]="templateContent"></textarea></div>
-    </div>
-
-
-    
-    <!-- <button pButton type="button" class="browse-btn" label="Browse" (click)="onChooseClick()"></button> -->
-    <!-- <p-fileUpload #fileUpload name="files" url="{{uploadUrl}}" multiple="multiple" maxFileSize="1000000" [disabled]="isUpload" (onBeforeSend)="onBeforeSend($event.xhr, $event.formData)" (onBeforeUpload)="onBeforeUpload($event.xhr, $event.formData)" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" (onError)="onUploadError($event)">
-    </p-fileUpload> -->
-    
+  <h2 class="text-center">Create Email Template</h2>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><label class="required">Template Name</label></div>
+    <div class="ui-g-9"><input pInputText placeholder="Template Name" type="text" maxlength="50" [(ngModel)]="newTemplate.subject"></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><label>Attachment Address</label></div>
+    <div class="ui-g-9"><input pInputText placeholder="Attachment Address" type="text" maxlength="50" [(ngModel)]="newTemplate.attach"></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-12 cut-line"><label class="required">Email Content</label></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="bodyFormatRadio" label="Html Attachment Address" value="htmlBody" [(ngModel)]="bodyFormat" (click)="selectbodyFormat()"></p-radioButton></div>
+    <div class="ui-g-9"><input pInputText [disabled]="!isHtmlBody" placeholder="Html Attachment Address" type="text" maxlength="50" [(ngModel)]="newTemplate.htm"></div>
     <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="bodyFormatRadio" label="Text Content" value="textBody" [(ngModel)]="bodyFormat" (click)="selectbodyFormat()"></p-radioButton></div>
+    <div class="ui-g-9"><textarea placeholder="Text Content" [disabled]="isHtmlBody" [rows]="4" [cols]="30" pInputTextarea [(ngModel)]="newTemplate.text"></textarea></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-12 cut-line"><label class="required">Email Send Date</label></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="sendDateRadio" label="Send Date" value="sentDate" [(ngModel)]="sendDate" (click)="selectsendDate()"></p-radioButton></div>
+    <div class="ui-g-9"><p-calendar dateFormat="dd/mm/yy" [disabled]="!isFixedDate" placeholder="Select a Date" [minDate]="todayDate" [showIcon]="true" [(ngModel)]="newTemplate.sentDate"></p-calendar></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="sendDateRadio" label="According to date of entry" value="daysOfEntry" [(ngModel)]="sendDate" (click)="selectsendDate()"></p-radioButton></div>
+    <div class="ui-g-9">Send email after <p-spinner class="noswitcher" [inputStyle]="{'width':'50px'}" [disabled]="isFixedDate" [maxlength]="10" [formatInput]=false [(ngModel)]="daysDisplay"></p-spinner> days of entry</div>
+  </div>
 </div>
+
+<div class="toolBar content-toolBar">
+  <div class="mandatory-message">(*) Mandatory fields</div>
+  <div class="buttons-container">
+    <button class="commonBtn" (click)="cancel()">Cancel</button>
+    <button class="commonBtn marginRight60" [disabled]="loading" (click)="save()">Save</button>
+  </div>
+</div>
+
+<p-dialog header="{{errorDialogHeader}}" [resizable]="false" [responsive]="false" [closeOnEscape]="false" [closable]="false" [(visible)]="isErrorDialogVisible">
+  <p>{{ errorDialogMessage }}</p>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <button pButton type="button" label="OK" (click)="isErrorDialogVisible=false"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+    
+<!-- <button pButton type="button" class="browse-btn" label="Browse" (click)="onChooseClick()"></button> -->
+<!-- <p-fileUpload #fileUpload name="files" url="{{uploadUrl}}" multiple="multiple" maxFileSize="1000000" [disabled]="isUpload" (onBeforeSend)="onBeforeSend($event.xhr, $event.formData)" (onBeforeUpload)="onBeforeUpload($event.xhr, $event.formData)" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" (onError)="onUploadError($event)">
+</p-fileUpload> -->
+
+<!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->

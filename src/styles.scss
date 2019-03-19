@@ -14,4 +14,154 @@ body .ui-inputtext {
   padding: 0.429em;
   border: 1px solid #a6a6a6;
 }
+input, textarea {
+  width: 100%;
+  padding: .5px 5px;
+}
 /*========================== input ==============================*/
+
+/*========================== calendar ==============================*/
+.ui-calendar {
+  width: 100%;
+
+  .ui-calendar-button {
+    position: absolute;
+    height: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 2em;
+    border-left: 0 none;
+  }
+}
+.ui-calendar.ui-calendar-w-btn .ui-inputtext {
+  width: calc(100% - 2em);
+}
+/*========================== calendar ==============================*/
+
+/*========================== label ==============================*/
+.plabel {
+  line-height: 1.8vw !important;
+  text-align: right;
+}
+label.required:before {
+  content: '*';
+  color: red;
+}
+/*========================== label ==============================*/
+
+/*========================== p-spinner ==============================*/
+p-spinner.noswitcher .ui-spinner-button {
+  display: none !important;
+}
+/*========================== p-spinner ==============================*/
+
+/*========================== button ==============================*/
+.commonBtn, a.commonBtn, button.commonBtn, .ui-widget .commonBtn {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: .5vw;
+  background: #0079c1;
+  color: white;
+  border: none;
+  padding: .5vw 1vw;
+  font-size: 1vw;
+  margin: .5vw;
+  width: auto;
+  height: auto;
+  z-index: 1;
+}
+/*========================== button ==============================*/
+
+/*========================== dialog ==============================*/
+.ui-widget-header {
+  background: #014670 0 0 repeat-x !important;
+  background: linear-gradient(to bottom, #014670 0%, #014670 100%) !important;
+  border: 1px solid #014670 !important;
+  color: #ffffff !important;
+  font-weight: normal !important;
+}
+.ui-dialog:not(.ui-confirmdialog) {
+  .ui-dialog-footer { padding: 0; }
+  .ui-dialog-footer.ui-widget-content { border: none; }
+}
+.ui-dialog .ui-dialog-buttonpane {
+  position: relative;
+  margin: 0;
+  padding: .3em .4em;
+  background-color: #fff;
+  border: none;
+  border-top: 1px solid #D5D5D5;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+  margin: .5em .4em .5em 0;
+}
+/*========================== dialog ==============================*/
+
+/*========================== confirmdialog ==============================*/
+.ui-confirmdialog {
+  width: 30em;
+}
+/*========================== confirmdialog ==============================*/
+
+/*========================== content ==============================*/
+.text-center {
+  text-align: center;
+}
+
+.content{
+  height: auto;
+  padding: 0 25% 0 15% !important;
+  position: absolute !important;
+  top: 70px;
+  bottom: 4em;
+  overflow-y: auto;
+  .cut-line {
+    border-bottom: 1px solid #20272a;
+    position: relative;
+    height: 10px;
+    margin: 5px 0 10px 0;
+    
+    label {
+      font-weight: bold;
+      background: #fff;
+      font-size: 1vw;
+      padding: 2px 10px;
+      position: absolute;
+      top: -1px;
+      left: 10px;
+    }
+  }
+
+  .right-float {
+      float: right;        
+  }
+}
+
+.content-toolBar {
+  padding: 0 5% !important;
+}
+.content-toolBar.toolBar {
+  width: 90%;
+}
+.toolBar {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  padding-left: .5em;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: right;
+
+  .mandatory-message {
+    color: red;
+  }
+
+  .buttons-container {
+    margin-left: auto;
+  }
+}
+/*========================== content ==============================*/

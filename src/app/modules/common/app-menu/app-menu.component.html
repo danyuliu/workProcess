@@ -1,0 +1,22 @@
+<div class="ui-g-12 content">
+  <!-- <div class="menu-wrap">
+    <div class="menu-container" *ngFor="let item of menuList; let i=index;" (click)="onMenuClick(item.routeLink)">
+      <div> 
+        <div class="display-flex">
+          <span class='main-menu-icon'><i class="pi pi-circle-on" style="font-size: 1.4em"></i></span>
+        </div>
+        <div class="menu-name">{{ item.displayText }}</div>
+      </div>
+    </div>
+  </div> -->
+  <div class="menu-wrap">
+    <i class="pi pi-circle-on menu-container" style="font-size: 280px" *ngFor="let item of menuList; let i=index;" (click)="onMenuClick(item.routeLink)">
+      <div> 
+        <div class="display-flex">
+          <span class='main-menu-icon'><i class="pi {{item.class}}" style="font-size: 1.4em"></i></span>
+        </div>
+        <div class="menu-name">{{ item.displayText }}</div>
+      </div>
+    </i>
+  </div>
+</div>

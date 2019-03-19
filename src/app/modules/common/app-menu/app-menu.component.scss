@@ -1,0 +1,90 @@
+@media all and (max-width: 900px) and (min-width: 700px) {
+    .menu-wrap {
+        width: 515px;
+    }
+    .menu-container:nth-child(5n+1) {
+        margin-left: 20px;
+    }
+    .menu-container:nth-child(3n+1) {
+        margin-left: 0;
+    }
+}
+@media all and (max-width: 1190px) and (min-width: 901px) {
+    .menu-wrap {
+        position: relative;
+        width: 850px;
+        margin: 26px auto;
+    }
+    .menu-container:nth-child(5n+1) {
+        margin-left: 26px;
+    }
+    .menu-container:nth-child(4n+1) {
+        margin-left: 0;
+    }
+}
+@media all and (max-width: 3000px) and (min-width: 1200px) {
+    .menu-wrap {
+        width: 1060px;
+    }
+}
+
+.menu-wrap{
+    position: relative;
+    width: 1004px;
+    margin: 26px auto 0;
+}
+
+.menu-container {
+    float: left;
+    position: relative;
+    color: #d4ebf4;
+    margin: 0 0 26px 26px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.menu-container:hover{
+    color: #0076a6;
+    .menu-name{
+        color: #fff;
+    }
+}
+
+.menu-name{
+    color: #4c4948;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -110px;
+}
+
+.main-menu-icon {
+    font-size: 64px;
+    color: #5fabd8;
+    margin-top: 26px;
+}
+
+.menu-container:hover .main-menu-icon{
+    color: #e7d350;
+}
+
+.menu-container:first-child {
+    margin-left: 0;
+}
+
+.menu-container:nth-child(5n+1) {
+    margin-left: 0;
+}
+
+.display-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 34%;
+    top: 18%;
+}
