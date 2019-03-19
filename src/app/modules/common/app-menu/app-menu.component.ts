@@ -9,7 +9,7 @@ import { Component, OnInit, ViewChild, Output, EventEmitter } from "@angular/cor
 export class AppMenuComponent implements OnInit {
 
   menuList: any = [];
-  @Output() onPageNavigation: EventEmitter<any> = new EventEmitter<true>();
+  @Output() onPageNavigation: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 

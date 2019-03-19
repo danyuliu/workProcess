@@ -1,4 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router } from '@angular/router';
+import { CommonService } from '../../services/common.service';
 import { EmailService } from "../../services/email.service";
 
 @Component({
@@ -29,6 +31,8 @@ export class EmailTemplateComponent implements OnInit {
   errorDialogMessage: string;
 
   constructor(
+    private router: Router,
+    private commonService: CommonService,
     private emailService: EmailService
   ) {}
 
@@ -78,7 +82,7 @@ export class EmailTemplateComponent implements OnInit {
   }
 
   cancel() {
-
+    this.commonService.backToMainMenu("../");
   }
 
 }

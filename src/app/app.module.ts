@@ -24,6 +24,7 @@ import { EmailTemplateComponent } from './modules/email-template/email-template.
 /* END */
 
 /* Service */
+import { CommonService } from './services/common.service';
 import { EmailService } from './services/email.service';
 /* END */
 
@@ -54,7 +55,8 @@ import { EmailService } from './services/email.service';
     DialogModule
     /* END */
   ],
-  providers: [    
+  providers: [
+    CommonService, 
     EmailService
   ],
   bootstrap: [AppComponent]
