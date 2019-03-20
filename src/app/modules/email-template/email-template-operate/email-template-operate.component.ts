@@ -3,12 +3,14 @@ import { Router } from '@angular/router';
 import { EmailService } from "../../../services/email.service";
 
 @Component({
-  selector: "email-template",
-  templateUrl: "./email-template.component.html",
-  styleUrls: ["./email-template.component.scss"]
+  selector: "email-template-operate",
+  templateUrl: "./email-template-operate.component.html",
+  styleUrls: ["./email-template-operate.component.scss"]
 })
   
 export class EmailTemplateCreateComponent implements OnInit {
+
+  @Output() operateEmailTemplate: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   newTemplate: any = {
     subject: null,
@@ -34,8 +36,7 @@ export class EmailTemplateCreateComponent implements OnInit {
     private emailService: EmailService
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   selectbodyFormat() {
     if(this.bodyFormat == "htmlBody") {
@@ -80,7 +81,7 @@ export class EmailTemplateCreateComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(["../"]);
+    this.operateEmailTemplate.emit(false);
   }
 
 }

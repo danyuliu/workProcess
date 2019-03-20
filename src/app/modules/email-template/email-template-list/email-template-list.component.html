@@ -1,21 +1,49 @@
-<div class="ui-g-12 content">
-  <p-table [value]="cars">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Vin</th>
-            <th>Year</th>
-            <th>Brand</th>
-            <th>Color</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-car>
-        <tr>
-            <td>{{car.vin}}</td>
-            <td>{{car.year}}</td>
-            <td>{{car.brand}}</td>
-            <td>{{car.color}}</td>
-        </tr>
-    </ng-template>
-  </p-table>
+<div *ngIf="!isShowOperateEmailTemplate">
+  <div class="ui-g-12 content table-content">
+    <h2 class="text-center">Email Template List</h2>
+    <div class="padding20">
+      <p-table [columns]="cols" [value]="tableData" selectionMode="single" [(selection)]="selectedTableData"
+      dataKey="id" [scrollable]="true" [style]="{width:'100%'}" [resizableColumns]="true">
+        <ng-template pTemplate="colgroup" let-columns>
+          <colgroup>
+            <col *ngFor="let col of columns" [style.width]="col.width">
+          </colgroup>
+        </ng-template>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <!-- <th style="width: 2em"></th> -->
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <!-- <td><p-tableRadioButton [value]="rowData"></p-tableRadioButton></td> -->
+            <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <div class="toolBar content-toolBar table-content-toolBar">
+    <div class="buttons-container">
+      <button class="commonBtn" (click)="back()">Back</button>
+      <button class="commonBtn marginRight60" [disabled]="loading" (click)="create()">Create</button>
+      <button class="commonBtn marginRight60" [disabled]="!selectedTableData" (click)="edit()">Edit</button>
+    </div>
+  </div>
 </div>
+
+<email-template-operate *ngIf="isShowOperateEmailTemplate" (operateEmailTemplate)="onOperateEmailTemplate($event)"></email-template-operate>
+
+<p-dialog header="{{errorDialogHeader}}" [resizable]="false" [responsive]="false" [closeOnEscape]="false" [closable]="false" [(visible)]="isErrorDialogVisible">
+  <p>{{ errorDialogMessage }}</p>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <button pButton type="button" label="OK" (click)="isErrorDialogVisible=false"></button>
+    </div>
+  </p-footer>
+</p-dialog>
 

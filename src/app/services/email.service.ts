@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpHeaders } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http'
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { environment } from "../../environments/environment";
 
 @Injectable()
@@ -12,6 +11,15 @@ export class EmailService {
   constructor(
     private http: HttpClient
   ) { }
+
+  getEmailTemplate() {
+    var headers = new HttpHeaders({ "Content-Type": "application/json" });
+    var url = this.EmailAPIPath;
+    return this.http.get(url, { headers: headers })
+    // .map((res) => {  
+    //   return res;
+    // });
+  }
 
   createEmailTemplate(obj) {
     var headers = new HttpHeaders({ "Content-Type": "application/json" });

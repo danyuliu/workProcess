@@ -70,6 +70,11 @@ p-spinner.noswitcher .ui-spinner-button {
   width: auto;
   height: auto;
   z-index: 1;
+  cursor: pointer;
+}
+.commonBtn.disable, .commonBtn:disabled {
+  background: grey;
+  cursor: default;
 }
 /*========================== button ==============================*/
 
@@ -104,6 +109,21 @@ p-spinner.noswitcher .ui-spinner-button {
 }
 /*========================== confirmdialog ==============================*/
 
+/*========================== datatable ==============================*/
+.ui-table {
+  th.ng-star-inserted {
+    background: #014670 !important;
+    border-color: #014670 !important;
+    color: #ffffff !important;
+    font-family: din-regular !important;
+  }
+
+  .ui-sortable-column .ui-sortable-column-icon {
+    color: #ffffff !important;
+  }
+}
+/*========================== datatable ==============================*/
+
 /*========================== content ==============================*/
 .text-center {
   text-align: center;
@@ -111,7 +131,7 @@ p-spinner.noswitcher .ui-spinner-button {
 
 .content{
   height: auto;
-  padding: 0 25% 0 15% !important;
+  padding: 0 20% !important;
   position: absolute !important;
   top: 70px;
   bottom: 4em;
@@ -163,5 +183,16 @@ p-spinner.noswitcher .ui-spinner-button {
   .buttons-container {
     margin-left: auto;
   }
+}
+
+.table-content {
+  padding: 0 10% !important;
+}
+.table-content-toolBar {
+  padding: 0 10% !important;
+}
+
+.padding20 {
+  padding: 20px;
 }
 /*========================== content ==============================*/

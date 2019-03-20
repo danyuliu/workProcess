@@ -24,7 +24,7 @@ export class AppMenuComponent implements OnInit {
       },
       { 
         displayText: "Email",
-        routeLink: "emailTemplateList",
+        routeLink: "emailTemplate",
         class: "pi-envelope"   
       }
     ];
