@@ -65,8 +65,7 @@ import { EmailService } from './services/email.service';
     CalendarModule,
     DialogModule,
     TableModule,
-    StepsModule,
-    ToastModule
+    StepsModule
     /* END */
   ],
   providers: [
