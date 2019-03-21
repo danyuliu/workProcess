@@ -2,30 +2,30 @@
   <h2 class="text-center">Create Email Template</h2>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><label class="required">Template Name</label></div>
-    <div class="ui-g-9"><input pInputText placeholder="Template Name" type="text" maxlength="50" [(ngModel)]="newTemplate.subject"></div>
+    <div class="ui-g-9"><input pInputText placeholder="Template Name" type="text" maxlength="50" [(ngModel)]="emailTemplate.subject"></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><label>Attachment Address</label></div>
-    <div class="ui-g-9"><input pInputText placeholder="Attachment Address" type="text" maxlength="50" [(ngModel)]="newTemplate.attach"></div>
+    <div class="ui-g-9"><input pInputText placeholder="Attachment Address" type="text" maxlength="50" [(ngModel)]="emailTemplate.attach"></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-12 cut-line"><label class="required">Email Content</label></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="bodyFormatRadio" label="Html Attachment Address" value="htmlBody" [(ngModel)]="bodyFormat" (click)="selectbodyFormat()"></p-radioButton></div>
-    <div class="ui-g-9"><input pInputText [disabled]="!isHtmlBody" placeholder="Html Attachment Address" type="text" maxlength="50" [(ngModel)]="newTemplate.htm"></div>
+    <div class="ui-g-9"><input pInputText [disabled]="!isHtmlBody" placeholder="Html Attachment Address" type="text" maxlength="50" [(ngModel)]="emailTemplate.htm"></div>
     <!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->
   </div>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="bodyFormatRadio" label="Text Content" value="textBody" [(ngModel)]="bodyFormat" (click)="selectbodyFormat()"></p-radioButton></div>
-    <div class="ui-g-9"><textarea placeholder="Text Content" [disabled]="isHtmlBody" [rows]="4" [cols]="30" pInputTextarea [(ngModel)]="newTemplate.text"></textarea></div>
+    <div class="ui-g-9"><textarea placeholder="Text Content" [disabled]="isHtmlBody" [rows]="4" [cols]="30" pInputTextarea [(ngModel)]="emailTemplate.text"></textarea></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-12 cut-line"><label class="required">Email Send Date</label></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="sendDateRadio" label="Send Date" value="sentDate" [(ngModel)]="sendDate" (click)="selectsendDate()"></p-radioButton></div>
-    <div class="ui-g-9"><p-calendar dateFormat="dd/mm/yy" [disabled]="!isFixedDate" placeholder="Select a Date" [minDate]="todayDate" [showIcon]="true" [(ngModel)]="newTemplate.sentDate"></p-calendar></div>
+    <div class="ui-g-9"><p-calendar dateFormat="dd/mm/yy" [disabled]="!isFixedDate" placeholder="Select a Date" [minDate]="todayDate" [showIcon]="true" [(ngModel)]="emailTemplate.sentDate"></p-calendar></div>
   </div>
   <div class="ui-g-12">
     <div class="ui-g-3 plabel"><p-radioButton class="right-float" name="sendDateRadio" label="According to date of entry" value="daysOfEntry" [(ngModel)]="sendDate" (click)="selectsendDate()"></p-radioButton></div>

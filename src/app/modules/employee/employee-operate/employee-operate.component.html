@@ -1,0 +1,35 @@
+<div class="ui-g-12 content">
+  <h2 class="text-center">Create Employee Template</h2>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><label class="required">Employee ID</label></div>
+    <div class="ui-g-9"><input pInputText placeholder="Employee ID" type="text" maxlength="50" [(ngModel)]="employee.name"></div>
+  </div>
+  <div class="ui-g-12">
+    <div class="ui-g-3 plabel"><label class="required">Entry Date</label></div>
+    <div class="ui-g-9"><p-calendar dateFormat="dd/mm/yy" placeholder="Select a Date" [maxDate]="todayDate" [showIcon]="true" [(ngModel)]="employee.joinDate"></p-calendar></div>
+  </div>
+</div>
+
+<div class="toolBar content-toolBar">
+  <div class="mandatory-message">(*) Mandatory fields</div>
+  <div class="buttons-container">
+    <button class="commonBtn" (click)="cancel()">Cancel</button>
+    <button class="commonBtn marginRight60" [disabled]="loading" (click)="save()">Save</button>
+  </div>
+</div>
+
+<p-dialog header="{{errorDialogHeader}}" [resizable]="false" [responsive]="false" [closeOnEscape]="false" [closable]="false" [(visible)]="isErrorDialogVisible">
+  <p>{{ errorDialogMessage }}</p>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+      <button pButton type="button" label="OK" (click)="isErrorDialogVisible=false"></button>
+    </div>
+  </p-footer>
+</p-dialog>
+
+    
+<!-- <button pButton type="button" class="browse-btn" label="Browse" (click)="onChooseClick()"></button> -->
+<!-- <p-fileUpload #fileUpload name="files" url="{{uploadUrl}}" multiple="multiple" maxFileSize="1000000" [disabled]="isUpload" (onBeforeSend)="onBeforeSend($event.xhr, $event.formData)" (onBeforeUpload)="onBeforeUpload($event.xhr, $event.formData)" (onUpload)="onUpload($event)" (onSelect)="onSelect($event)" (onError)="onUploadError($event)">
+</p-fileUpload> -->
+
+<!-- <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onBasicUpload($event)"></p-fileUpload> -->

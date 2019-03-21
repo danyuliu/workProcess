@@ -35,7 +35,10 @@ export class EmailTemplateListComponent implements OnInit {
       { field: 'sentDate', header: 'Send Date', width: '110px' },
       { field: 'days', header: 'Fixed Days', width: '120px' }
     ];
+    this.refreshDataTable();
+  }
 
+  refreshDataTable() {
     this.emailService.getEmailTemplate().subscribe((res) => {
       if(res) {
         this.tableData = res;
@@ -48,10 +51,10 @@ export class EmailTemplateListComponent implements OnInit {
       this.errorDialogHeader = "Error";
       this.errorDialogMessage = "Error in getEmailTemplate: " + err;
     });
-
   }
 
   onOperateEmailTemplate($event) {
+    this.refreshDataTable();
     this.isShowOperateEmailTemplate = $event;
   }
 

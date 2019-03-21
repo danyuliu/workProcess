@@ -15,18 +15,23 @@ import {SpinnerModule} from 'primeng/spinner';
 import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
+import {StepsModule} from 'primeng/steps';
+import {ToastModule} from 'primeng/toast';
 /* END */
 
 /* Components */
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMenuComponent } from './modules/common/app-menu/app-menu.component';
-import { AddEmployeeComponent } from './modules/add-employee/add-employee.component';
+import { EmployeeListComponent } from './modules/employee/employee-list/employee-list.component';
+import { EmployeeOperateComponent } from './modules/employee/employee-operate/employee-operate.component';
 import { EmailTemplateListComponent } from './modules/email-template/email-template-list/email-template-list.component';
-import { EmailTemplateCreateComponent } from './modules/email-template/email-template-operate/email-template-operate.component';
+import { EmailTemplateOperateComponent } from './modules/email-template/email-template-operate/email-template-operate.component';
+import { OnBoardProcessComponent } from './modules/on-board-process/on-board-process.component';
 /* END */
 
 /* Service */
+import { EmployeeService } from './services/employee.service';
 import { EmailService } from './services/email.service';
 /* END */
 
@@ -35,9 +40,11 @@ import { EmailService } from './services/email.service';
     /* Components */
     AppComponent,
     AppMenuComponent,
-    AddEmployeeComponent,
+    EmployeeListComponent,
+    EmployeeOperateComponent,
     EmailTemplateListComponent,
-    EmailTemplateCreateComponent
+    EmailTemplateOperateComponent,
+    OnBoardProcessComponent
     /* END */
   ],
   imports: [
@@ -58,9 +65,12 @@ import { EmailService } from './services/email.service';
     CalendarModule,
     DialogModule,
     TableModule,
+    StepsModule,
+    ToastModule
     /* END */
   ],
   providers: [
+    EmployeeService,
     EmailService
   ],
   bootstrap: [AppComponent]

@@ -8,11 +8,11 @@ import { EmailService } from "../../../services/email.service";
   styleUrls: ["./email-template-operate.component.scss"]
 })
   
-export class EmailTemplateCreateComponent implements OnInit {
+export class EmailTemplateOperateComponent implements OnInit {
 
   @Output() operateEmailTemplate: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  newTemplate: any = {
+  emailTemplate: any = {
     subject: null,
     attach: null,
     htm: null,
@@ -41,10 +41,10 @@ export class EmailTemplateCreateComponent implements OnInit {
   selectbodyFormat() {
     if(this.bodyFormat == "htmlBody") {
       this.isHtmlBody = true;
-      this.newTemplate.text = null;
+      this.emailTemplate.text = null;
     } else {
       this.isHtmlBody = false;
-      this.newTemplate.htm = null;
+      this.emailTemplate.htm = null;
     }
   }
 
@@ -54,23 +54,33 @@ export class EmailTemplateCreateComponent implements OnInit {
       this.daysDisplay = null;
     } else {
       this.isFixedDate = false;
-      this.newTemplate.sentDate = null;
+      this.emailTemplate.sentDate = null;
     }
   }
 
   validateInput() {
     var checkStatus = true;
+    if(!this.emailTemplate.subject) {
+      checkStatus = false;
+    }
+    if(!this.emailTemplate.htm || !this.emailTemplate.text) {
+      checkStatus = false;
+    }
+    if(!this.emailTemplate.sentDate || !this.daysDisplay) {
+      checkStatus = false;
+    }
     return checkStatus;
   }
 
   save() {
     if(this.validateInput()) {
-      this.newTemplate.days = this.daysDisplay;
-      this.emailService.createEmailTemplate(this.newTemplate).subscribe((data) => {
+      this.emailTemplate.days = this.daysDisplay;
+      this.emailService.createEmailTemplate(this.emailTemplate).subscribe((data) => {
         if(data && data['id']) {
           this.isErrorDialogVisible = true;
           this.errorDialogHeader = "Information";
           this.errorDialogMessage = "Email Template is created successfully, The Email # is " + data['id'];
+          this.operateEmailTemplate.emit(false);
         }
       });
     } else {

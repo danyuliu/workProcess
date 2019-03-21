@@ -19,17 +19,22 @@ export class AppMenuComponent implements OnInit {
     this.menuList = [
       {
         displayText: "Employee",
-        routeLink: "addEmployee",
+        routeLink: "employeeList",
         class: "pi-users"
       },
       { 
         displayText: "Email",
         routeLink: "emailTemplate",
-        class: "pi-envelope"   
+        class: "pi-envelope" 
+      },
+      { 
+        displayText: "Schedule",
+        routeLink: "onBoardProcess",
+        class: "pi-spinner" 
       }
     ];
   }
-
+  
   onMenuClick(routeLink) {
     this.router.navigate([routeLink]);
   }
