@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Router } from '@angular/router';
 import { EmployeeService } from "../../../services/employee.service";
 
@@ -10,6 +10,8 @@ import { EmployeeService } from "../../../services/employee.service";
   
 export class EmployeeOperateComponent implements OnInit {
 
+  @Input() operateType: string;
+  @Input() operateData: any;
   @Output() operateEmployee: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   employee: any = {
@@ -27,7 +29,11 @@ export class EmployeeOperateComponent implements OnInit {
     private employeeService: EmployeeService
   ) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.operateType == 'Modify') {
+      this.employee = this.operateData;
+    }
+  }
 
   validateInput() {
     var checkStatus = true;

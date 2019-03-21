@@ -15,7 +15,8 @@ export class EmailTemplateListComponent implements OnInit {
   tableData: any = [];
   selectedTableData: any;
 
-  isShowOperateEmailTemplate: boolean = false;
+  isShowOperateEmailTem: boolean = false;
+  operateType: string;
 
   isErrorDialogVisible: boolean = false;
   errorDialogHeader: string;
@@ -55,15 +56,12 @@ export class EmailTemplateListComponent implements OnInit {
 
   onOperateEmailTemplate($event) {
     this.refreshDataTable();
-    this.isShowOperateEmailTemplate = $event;
+    this.isShowOperateEmailTem = $event;
   }
 
-  create() {
-    this.isShowOperateEmailTemplate = true;
-  }
-
-  edit(){
-    this.isShowOperateEmailTemplate = true;
+  goOperateEmailTem(operateType) {
+    this.operateType = operateType;
+    this.isShowOperateEmailTem = true;
   }
 
   back() {

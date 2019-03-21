@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter, Input } from "@angular/core";
 import { Router } from '@angular/router';
 import { EmailService } from "../../../services/email.service";
 
@@ -10,6 +10,8 @@ import { EmailService } from "../../../services/email.service";
   
 export class EmailTemplateOperateComponent implements OnInit {
 
+  @Input() operateType: string;
+  @Input() operateData: any;
   @Output() operateEmailTemplate: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   emailTemplate: any = {
@@ -36,7 +38,11 @@ export class EmailTemplateOperateComponent implements OnInit {
     private emailService: EmailService
   ) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    if(this.operateType == 'Modify') {
+      this.emailTemplate = this.operateData;
+    }
+  }
 
   selectbodyFormat() {
     if(this.bodyFormat == "htmlBody") {

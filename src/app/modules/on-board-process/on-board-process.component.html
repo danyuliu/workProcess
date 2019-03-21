@@ -1,11 +1,10 @@
-<div class="ui-g-12 content table-content">
-  <!-- <p-toast [style]="{marginTop: '80px'}"></p-toast> -->
-  <p-steps [model]="items"></p-steps>
+<div class="ui-g-12 content">
+  <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
 </div>
 <div class="toolBar content-toolBar table-content-toolBar">
   <div class="buttons-container">
     <button class="commonBtn" (click)="back()">Back</button>
-    <button class="commonBtn marginRight60" [disabled]="loading" (click)="save()">Save</button>
+    <!-- <button class="commonBtn marginRight60" [disabled]="loading" (click)="save()">Save</button> -->
   </div>
 </div>
   

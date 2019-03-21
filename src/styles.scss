@@ -61,9 +61,7 @@ p-spinner.noswitcher .ui-spinner-button {
   display: inline-block;
   vertical-align: middle;
   border-radius: .5vw;
-  background: #0079c1;
-  color: white;
-  border: none;
+  border: 1px solid rgba(29, 28, 29, .3);
   padding: .5vw 1vw;
   font-size: 1vw;
   margin: .5vw;
@@ -73,8 +71,9 @@ p-spinner.noswitcher .ui-spinner-button {
   cursor: pointer;
 }
 .commonBtn.disable, .commonBtn:disabled {
-  background: grey;
+  background: rgba(29, 28, 29, .2) !important;
   cursor: default;
+  border: none;
 }
 /*========================== button ==============================*/
 
@@ -112,14 +111,16 @@ p-spinner.noswitcher .ui-spinner-button {
 /*========================== datatable ==============================*/
 .ui-table {
   th.ng-star-inserted {
-    background: #014670 !important;
-    border-color: #014670 !important;
+    background: #52575a !important;
+    border-color: #52575a !important;
     color: #ffffff !important;
     font-family: din-regular !important;
   }
-
   .ui-sortable-column .ui-sortable-column-icon {
     color: #ffffff !important;
+  }
+  .ui-table-tbody > tr > td {
+    white-space: nowrap;
   }
 }
 /*========================== datatable ==============================*/
@@ -127,31 +128,85 @@ p-spinner.noswitcher .ui-spinner-button {
 /*========================== content ==============================*/
 
 /*========================== steps ==============================*/
-.ui-steps .ui-steps-item {
-  width: 25%;
+body .ui-steps:before {
+  content: " ";
+  border-top: 1px solid #c8c8c8;
+  width: 100%;
+  top: 45%;
+  left: 0;
+  display: block;
+  position: absolute;
 }
 
+body .ui-steps {
+  position: relative;
+  .ui-steps-item {
+    width: 25%;
+    background-color: transparent;
+    text-align: center;
+    .ui-menuitem-link .ui-steps-title {
+      display: block;
+      margin-top: 6px;
+      color: #848484;
+    }
+  }
+  .ui-steps-item:not(.ui-state-highlight):not(.ui-state-disabled):hover {
+    background-color: transparent;
+  }
+  .ui-steps-item.ui-state-highlight{
+    .ui-steps-number {
+      background: #007ad9;
+      color: #ffffff;
+    }
+    .ui-steps-title {
+      font-weight: 700;
+      color: #333333;
+    }
+  }
+  .ui-menuitem-link .ui-steps-number {
+    background: #ffffff;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid #c8c8c8;
+    position: relative;
+    top: 16px;
+    margin-bottom: 14px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+  .ui-menuitem-link .ui-steps-number span:first-child {
+    background: #007ad9;
+    color: #ffffff;
+  }
+}
 .ui-steps.steps-custom {
   margin-bottom: 30px;
+  .ui-steps-item{
+    .ui-menuitem-link {
+      height: 10px;
+      padding: 0 1em;
+    }
+    .ui-steps-number {
+      background-color: #0081c2;
+      color: #FFFFFF;
+      display: inline-block;
+      width: 36px;
+      border-radius: 50%;
+      margin-top: -14px;
+      margin-bottom: 10px;
+    }
+    .ui-steps-title {
+      color: #555555;
+    }
+  }
 }
 
-.ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
-  height: 10px;
-  padding: 0 1em;
-}
-
-.ui-steps.steps-custom .ui-steps-item .ui-steps-number {
-  background-color: #0081c2;
-  color: #FFFFFF;
-  display: inline-block;
-  width: 36px;
-  border-radius: 50%;
-  margin-top: -14px;
-  margin-bottom: 10px;
-}
-
-.ui-steps.steps-custom .ui-steps-item .ui-steps-title {
-  color: #555555;
+.ui-state-default {
+  border: none !important;
 }
 /*========================== steps ==============================*/
 .text-center {

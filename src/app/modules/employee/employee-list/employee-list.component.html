@@ -30,13 +30,13 @@
   <div class="toolBar content-toolBar table-content-toolBar">
     <div class="buttons-container">
       <button class="commonBtn" (click)="back()">Back</button>
-      <button class="commonBtn marginRight60" [disabled]="loading" (click)="create()">Create</button>
-      <button class="commonBtn marginRight60" [disabled]="!selectedTableData" (click)="edit()">Edit</button>
+      <button class="commonBtn marginRight60" [disabled]="loading" (click)="goOperateEmployee('Create')">Create</button>
+      <button class="commonBtn marginRight60" [disabled]="!selectedTableData" (click)="goOperateEmployee('Modify')">Modify</button>
     </div>
   </div>
 </div>
 
-<employee-operate *ngIf="isShowOperateEmployee" (operateEmployee)="onOperateEmployee($event)"></employee-operate>
+<employee-operate *ngIf="isShowOperateEmployee" (operateEmployee)="onOperateEmployee($event)" [operateType]="operateType" [operateData]="selectedTableData"></employee-operate>
 
 <p-dialog header="{{errorDialogHeader}}" [resizable]="false" [responsive]="false" [closeOnEscape]="false" [closable]="false" [(visible)]="isErrorDialogVisible">
   <p>{{ errorDialogMessage }}</p>

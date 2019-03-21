@@ -16,7 +16,6 @@ import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
 import {StepsModule} from 'primeng/steps';
-import {ToastModule} from 'primeng/toast';
 /* END */
 
 /* Components */

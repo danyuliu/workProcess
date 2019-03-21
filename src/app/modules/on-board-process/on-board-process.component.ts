@@ -11,6 +11,7 @@ import {MenuItem} from 'primeng/api';
 export class OnBoardProcessComponent implements OnInit {
   
   items: MenuItem[];
+  activeIndex: number = 1;
   
   constructor(
     private router: Router
@@ -18,9 +19,10 @@ export class OnBoardProcessComponent implements OnInit {
 
   ngOnInit() {
     this.items = [
-      {label: 'Step 1'},
-      {label: 'Step 2'},
-      {label: 'Step 3'}
+      {label: 'Email Notification'},
+      {label: 'Background Check'},
+      {label: 'On-boarding'},
+      {label: 'First Survey'}
     ];
   }
 

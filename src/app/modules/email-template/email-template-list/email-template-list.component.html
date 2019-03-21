@@ -1,4 +1,4 @@
-<div *ngIf="!isShowOperateEmailTemplate">
+<div *ngIf="!isShowOperateEmailTem">
   <div class="ui-g-12 content table-content">
     <h2 class="text-center">Email Template List</h2>
     <div class="padding20">
@@ -30,13 +30,13 @@
   <div class="toolBar content-toolBar table-content-toolBar">
     <div class="buttons-container">
       <button class="commonBtn" (click)="back()">Back</button>
-      <button class="commonBtn marginRight60" [disabled]="loading" (click)="create()">Create</button>
-      <button class="commonBtn marginRight60" [disabled]="!selectedTableData" (click)="edit()">Edit</button>
+      <button class="commonBtn marginRight60" [disabled]="loading" (click)="goOperateEmailTem('Create')">Create</button>
+      <button class="commonBtn marginRight60" [disabled]="!selectedTableData" (click)="goOperateEmailTem('Modify')">Modify</button>
     </div>
   </div>
 </div>
 
-<email-template-operate *ngIf="isShowOperateEmailTemplate" (operateEmailTemplate)="onOperateEmailTemplate($event)"></email-template-operate>
+<email-template-operate *ngIf="isShowOperateEmailTem" (operateEmailTemplate)="onOperateEmailTemplate($event)" [operateType]="operateType" [operateData]="selectedTableData"></email-template-operate>
 
 <p-dialog header="{{errorDialogHeader}}" [resizable]="false" [responsive]="false" [closeOnEscape]="false" [closable]="false" [(visible)]="isErrorDialogVisible">
   <p>{{ errorDialogMessage }}</p>

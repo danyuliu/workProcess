@@ -16,6 +16,7 @@ export class EmployeeListComponent implements OnInit {
   selectedTableData: any;
 
   isShowOperateEmployee: boolean = false;
+  operateType: string;
 
   isErrorDialogVisible: boolean = false;
   errorDialogHeader: string;
@@ -29,7 +30,7 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit() {
     this.cols = [
       { field: 'name', header: 'Employee ID', width: '170px' },
-      {field: 'joinDate', header: 'Entry Date', width: '120px' }
+      {field: 'joinDate', header: 'Official Start Date', width: '120px' }
     ];
     this.refreshDataTable();
   }
@@ -54,11 +55,8 @@ export class EmployeeListComponent implements OnInit {
     this.isShowOperateEmployee = $event;
   }
 
-  create() {
-    this.isShowOperateEmployee = true;
-  }
-
-  edit(){
+  goOperateEmployee(operateType) {
+    this.operateType = operateType;
     this.isShowOperateEmployee = true;
   }
 
